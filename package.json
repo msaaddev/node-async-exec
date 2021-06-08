@@ -17,7 +17,13 @@
 		"format": "prettier --write \"./**/*.{js,json}\"",
 		"test": "node test.js"
 	},
-	"keywords": [],
+	"keywords": [
+		"exec-async",
+		"async-exec",
+		"asynchronous exec",
+		"node exec",
+		"shell commands"
+	],
 	"devDependencies": {
 		"prettier": "^2.3.1"
 	},
