@@ -3,7 +3,7 @@
 	"version": "1.0.0",
 	"description": "",
 	"main": "index.js",
-	"repository": "https://github.com/msaaddev/async-exec",
+	"repository": "https://github.com/msaaddev/execAsync",
 	"author": {
 		"name": "Saad Irfan",
 		"email": "mrsaadirfan@gmail.com",
