@@ -37,9 +37,7 @@ const exec = require('node-async-exec');
 
 (async () => {
 	try {
-		await exec(
-		{ cmd: `touch example.md` }
-	)
+		await exec({ cmd: `touch example.md` })
 	} catch (err) {
 		console.log(err);
 	}
