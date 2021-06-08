@@ -1,0 +1,27 @@
+{
+	"name": "async-exec",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"repository": "https://github.com/msaaddev/async-exec",
+	"author": {
+		"name": "Saad Irfan",
+		"email": "mrsaadirfan@gmail.com",
+		"url": "https://twitter.com/msaaddev"
+	},
+	"license": "MIT",
+	"files": [
+		"index.js"
+	],
+	"scripts": {
+		"format": "prettier --write \"./**/*.{js,json}\"",
+		"test": "node test.js"
+	},
+	"keywords": [],
+	"devDependencies": {
+		"prettier": "^2.3.1"
+	},
+	"dependencies": {
+		"node-cli-handle-error": "^1.0.0"
+	}
+}
