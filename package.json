@@ -1,9 +1,9 @@
 {
-	"name": "exec-async",
+	"name": "node-async-exec",
 	"version": "1.0.0",
 	"description": "",
 	"main": "index.js",
-	"repository": "https://github.com/msaaddev/execAsync",
+	"repository": "https://github.com/msaaddev/node-async-exec",
 	"author": {
 		"name": "Saad Irfan",
 		"email": "mrsaadirfan@gmail.com",
