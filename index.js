@@ -24,13 +24,25 @@ module.exports = async (opt = {}) => {
 
 	// runs exec function asynchronously
 	const execPromise = new Promise((resolve, reject) => {
-		exec(cmd, (error, stdout, stderr) => {
-			if (error) {
-				handleError(error);
-				reject();
-			}
-			resolve();
-		});
+		if (typeof cmd !== 'object') {
+			exec(cmd, (error, stdout, stderr) => {
+				if (error) {
+					handleError(error);
+					reject();
+				}
+				resolve();
+			});
+		} else {
+			cmd.forEach(command => {
+				exec(command, (error, stdout, stderr) => {
+					if (error) {
+						handleError(error);
+						reject();
+					}
+					resolve();
+				});
+			});
+		}
 	});
 
 	return execPromise;

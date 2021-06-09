@@ -11,6 +11,13 @@ const handleError = require('node-cli-handle-error');
 			path: `/Users/saadirfan/GitHub`,
 			cmd: `touch example.md`
 		});
+
+		// change directory and run a bunch of commands
+		const commands = [`touch example.js`, `touch example.md`];
+		await execAsync({
+			path: `/Users/saadirfan/GitHub`,
+			cmd: commands
+		});
 	} catch (err) {
 		handleError(err);
 	}
