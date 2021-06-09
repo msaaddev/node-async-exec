@@ -4,7 +4,7 @@
 ![downloads](https://img.shields.io/npm/dt/node-async-exec?color=2FD566)
 ![license](https://img.shields.io/npm/l/node-async-exec?color=2FD566)
 
->A package that runs exec command asynchronously.
+A package that runs exec command asynchronously and also changes directory if needed to run commands.
 
 ## Features
 
