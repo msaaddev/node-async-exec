@@ -9,7 +9,7 @@
 ## Features
 
 - Asynchronously run a shell command.
-- Run a shell command inside a specific directory.
+- Run a shell command/commands inside a specific directory.
 - Uses [exec node method](https://nodejs.org/api/child_process.html#child_process_child_process_exec_command_options_callback) and [process.chdir](https://nodejs.org/api/process.html#process_process_chdir_directory) under the hood.
 - Can be used to build CLI and Node.js based tools.
 
@@ -44,7 +44,7 @@ const exec = require('node-async-exec');
 })()
 ```
 
-- Run a shell command inside a particular directory
+- Change directory and run a command inside of it
 
 ```js
 const exec = require('node-async-exec');
@@ -54,6 +54,24 @@ const exec = require('node-async-exec');
 		await exec({
 			path: `/Users/saadirfan/GitHub`,
 			cmd: `touch example.md`
+		})
+	} catch (err) {
+		console.log(err);
+	}
+})()
+```
+
+- Change directory and run a number of shell command inside that directory
+
+```js
+const exec = require('node-async-exec');
+
+(async () => {
+	try {
+		const commands = [`git init`, `touch example.md`];
+		await exec({
+			path: `/Users/saadirfan/GitHub`,
+			cmd: commands
 		})
 	} catch (err) {
 		console.log(err);
