@@ -8,16 +8,22 @@ const handleError = require('node-cli-handle-error');
 
 		// changes directory and then run the shell command inside that directory
 		await execAsync({
-			path: `/Users/saadirfan/GitHub`,
+			path: `/Users/saadirfan/Desktop`,
 			cmd: `touch example.md`
 		});
 
 		// change directory and run a bunch of commands
-		const commands = [`touch example.js`, `touch example.md`];
+		const commands = [
+			`mkdir saad`,
+			`npm install`,
+			`npm install --only=dev`
+		];
 		await execAsync({
-			path: `/Users/saadirfan/GitHub`,
+			path: `/Users/saadirfan/Desktop/example`,
 			cmd: commands
 		});
+
+		console.log(`Will execute after commands...`);
 	} catch (err) {
 		handleError(err);
 	}
