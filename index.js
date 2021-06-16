@@ -9,6 +9,24 @@
 const { exec } = require('child_process');
 const handleError = require('node-cli-handle-error');
 
+/**
+ *
+ *
+ * @param {cmd} - commands to run
+ * @returns {Promise} - a promise that runs the command
+ */
+async function promise(cmd) {
+	return new Promise((resolve, reject) => {
+		exec(cmd, (error, stdout, stderr) => {
+			if (error) {
+				handleError(error);
+				reject();
+			}
+			resolve();
+		});
+	});
+}
+
 module.exports = async (opt = {}) => {
 	const defaultOptions = {
 		path: ``,
@@ -22,28 +40,19 @@ module.exports = async (opt = {}) => {
 	// changes directory if a path exists
 	path !== `` ? process.chdir(path) : null;
 
-	// runs exec function asynchronously
-	const execPromise = new Promise((resolve, reject) => {
-		if (typeof cmd !== 'object') {
-			exec(cmd, (error, stdout, stderr) => {
-				if (error) {
-					handleError(error);
-					reject();
-				}
-				resolve();
-			});
-		} else {
-			cmd.forEach(command => {
-				exec(command, (error, stdout, stderr) => {
-					if (error) {
-						handleError(error);
-						reject();
-					}
+	// checks if there is one command or array of commands
+	if (typeof cmd !== 'object') {
+		return promise(cmd);
+	} else {
+		for (let i = 0; i < cmd.length; i++) {
+			await promise(cmd[i]);
+
+			let j = i + 1;
+			if (j === cmd.length) {
+				return new Promise((resolve, reject) => {
 					resolve();
 				});
-			});
+			}
 		}
-	});
-
-	return execPromise;
+	}
 };
