@@ -20,7 +20,7 @@ async function promise(cmd) {
 		exec(cmd, (error, stdout, stderr) => {
 			if (error) {
 				handleError(error);
-				reject();
+				reject(error);
 			}
 			resolve();
 		});
